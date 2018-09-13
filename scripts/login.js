@@ -67,8 +67,9 @@ Vue.component('login-form',{
         }
       })
       .then(response=>{
-        console.log(response);
         localStorage.setItem('token',response.data.token);
+        app.isLogin = true;
+        app.openLogin = false;
       })
       .catch(err=>{
         console.log(err);
@@ -77,5 +78,5 @@ Vue.component('login-form',{
     closeLogin(){
       app.openLogin = false;
     }
-  }
+  },
 });

@@ -85,7 +85,8 @@ Vue.component('register-form',{
         }
       })
       .then(response=>{
-        console.log(response)
+        console.log(response);
+        app.openRegister = false;
       })
       .catch(err=>{
         console.log(err);

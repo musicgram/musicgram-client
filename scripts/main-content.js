@@ -1,4 +1,4 @@
-Vue.component('content',{
+Vue.component('main-content',{
   template : `
   <div class="content-container">
     <h1>Lists of Musics</h1>

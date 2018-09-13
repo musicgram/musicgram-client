@@ -7,9 +7,9 @@ Vue.component('nav-bar',{
         </div>
         <div class="login">
           <ul>
-            <li v-if="!isLogin" id="login-button" @click = "openLogin">login</li>
-            <li v-if="!isLogin" id="register-button" @click = "openRegister">register</li>
-            <li v-if="isLogin" id="register-button" @click = "logOut">log out</li>
+            <li v-if="!logstatus" id="login-button" @click = "openLogin">login</li>
+            <li v-if="!logstatus" id="register-button" @click = "openRegister">register</li>
+            <li v-if="logstatus" id="register-button" @click = "logOut">log out</li>
           </ul>
         </div>
       </div>
@@ -20,12 +20,16 @@ Vue.component('nav-bar',{
       this.$emit('open-login');
     },
     openRegister(){
-      console.log('masuk');
       this.$emit('open-register');
     },
     logOut(){
       this.$emit('log-out');
     }
   },
-  props : ['is-login']
+  props : ['logstatus'],
+  data(){
+    return {
+      isLogin : this.logstatus
+    };
+  }
 });
