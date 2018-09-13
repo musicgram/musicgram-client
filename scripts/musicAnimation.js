@@ -46,30 +46,9 @@ Vue.component('music-animation',{
       <div class="colum1">
         <div class="row"></div>
       </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
-      <div class="colum1">
-        <div class="row"></div>
-      </div>
+
+
+
     </div>
   `
 });

@@ -271,3 +271,7 @@ audio:nth-child(6) {
     background-color: cornflowerblue;
   }
 }
+
+html {
+  font-family: 'Lato';
+}
