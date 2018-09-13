@@ -15,7 +15,7 @@ const app = new Vue({
   },
   created(){
     const token = localStorage.getItem('token');
-    if(token!==null||token!==undefined){
+    if(token!==null){
       this.isLogin = true;
     } else{
       this.isLogin = false;
