@@ -21,6 +21,7 @@
 
   <div id="app">
     <nav-bar @open-login="openLogin = true" @open-register="openRegister = true"></nav-bar>
+    <main-landing v-if="!isLogin"></main-landing>
     <music-bar></music-bar>
     <music-bar></music-bar>
     <music-animation></music-animation>
@@ -32,12 +33,10 @@
     <!-- <music-bar></music-bar> -->
   </div>
   <script src="./scripts/navbar.js"></script>
+  <script src="./scripts/landing.js"></script>
   <script src="./scripts/footer.js"></script>
   <script src="./scripts/login.js"></script>
   <script src="./scripts/register.js"></script>
-
-
-
   <script src="./scripts/content.js"></script>
   <script src="./scripts/musicBar.js"></script>
   <script src="./scripts/musicAnimation.js"></script>

@@ -12,11 +12,6 @@ Vue.component('nav-bar',{
           </ul>
         </div>
       </div>
-
-      <div class="landing">
-        <h2>explore the best music out there</h2>
-      </div>
-
     </div>
   `,
   methods : {
