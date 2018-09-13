@@ -20,5 +20,9 @@ const app = new Vue({
     } else{
       this.isLogin = false;
     }
+
+    if(this.isLogin === true){
+      this.openLogin = false;
+    }
   }
 });
