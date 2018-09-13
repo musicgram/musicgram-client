@@ -2,7 +2,7 @@ Vue.component('upload-file',{
     template :`
     <div class="form-upload">
             <form>
-                <input type="text" placeholder="title">
+                <input v-model="title" type="text" placeholder="title">
                 <input type="file" v-on:change="getSound($event)">
                 <button type="button" @click="upload">Upload</button>
             </form>
@@ -12,6 +12,7 @@ Vue.component('upload-file',{
     data(){
         return{
             urlSound : '',
+            title : ''
         }
     },
     methods : {
@@ -27,16 +28,23 @@ Vue.component('upload-file',{
             axios.post('http://localhost:3000/upload', formData)
                 .then((image) => {
                     let file = image.data.link
-                    let token = localStorage.getItem('token')
-                    console.log(dataImg);
-                    
-                    console.log(dataImg);
+                    let token = localStorage.getItem('token')                    
                     axios.post('http://localhost:3000/musics', {
-                            title : title,
+                            title : this.title,
                             file: file
                         },{headers:{authorization: `Bearer ${token}`}})
-                        .then(dataUpload => {
-                            console.log('========', dataUpload)
+                        .then(response => {
+                            
+                            let data = {musicId : response.data.musicId}
+                            axios.post('http://localhost:3000/users/addMusic',data,{headers:{authorization: `Bearer ${token}`}})
+                            .then(response =>{
+                                console.log(response);
+                                
+                            })
+                            .catch(err =>{
+                                console.log(err.response);
+                                
+                            })
                         })
                         .catch(err =>{
                             console.log(err);
