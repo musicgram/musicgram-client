@@ -7,8 +7,8 @@ Vue.component('nav-bar',{
         </div>
         <div class="login">
           <ul>
-            <li id="login-button">login</li>
-            <li id="register-button">register</li>
+            <li id="login-button" @click = "openLogin">login</li>
+            <li id="register-button" @click = "openRegister">register</li>
           </ul>
         </div>
       </div>
@@ -18,5 +18,13 @@ Vue.component('nav-bar',{
       </div>
 
     </div>
-  `
+  `,
+  methods : {
+    openLogin(){
+      this.$emit('open-login');
+    },
+    openRegister(){
+      this.$emit('open-register');
+    }
+  }
 });

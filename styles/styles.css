@@ -320,6 +320,7 @@ html {
   border: 1px solid #444;
   padding: 2% 10%;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #register-button {
@@ -328,6 +329,7 @@ html {
   color: #ffff;
   border: #444 1px solid;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /* footer */
@@ -360,4 +362,12 @@ html {
   text-align: center;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+.login-form {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 100px;
+  left: 450px;
 }
