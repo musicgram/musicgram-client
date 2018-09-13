@@ -75,8 +75,21 @@ Vue.component('register-form',{
   },
   methods : {
     sendRegister(){
-      console.log(this.email);
-      console.log(this.password);
+      axios({
+        method : "post",
+        url : "http://localhost:3000",
+        data :{
+          name : this.name,
+          password : this.password,
+          email : this.email
+        }
+      })
+      .then(response=>{
+        console.log(response)
+      })
+      .catch(err=>{
+        console.log(err);
+      })
     },
     closeRegister(){
       app.openRegister = false;
