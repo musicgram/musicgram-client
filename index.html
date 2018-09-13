@@ -9,9 +9,13 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <!-- axios -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- text-to-sound -->
+  <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
   <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/loginform.css">
+  <link rel="stylesheet" href="/styles/command.css">
+
 
 
   <title>Musicgram</title>
@@ -23,6 +27,14 @@
     <nav-bar @open-login="openLogin = true" @open-register="openRegister = true" @log-out="logOut" v-bind:logstatus="isLogin"></nav-bar>
     <main-landing v-if="!isLogin"></main-landing>
     <main-content></main-content>
+
+    
+    
+    <command></command>
+    <upload-file></upload-file>
+
+    <music-bar></music-bar>
+    <music-bar></music-bar>
     <music-animation></music-animation>
     <login-form v-if="openLogin"></login-form>
     <main-footer @opening-register="openRegister = true"></main-footer>
