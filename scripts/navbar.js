@@ -24,6 +24,7 @@ Vue.component('nav-bar',{
       this.$emit('open-login');
     },
     openRegister(){
+      console.log('masuk');
       this.$emit('open-register');
     }
   }
