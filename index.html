@@ -20,24 +20,23 @@
 <body>
 
   <div id="app">
-    <nav-bar @open-login="openLogin = true" @open-register="openRegister = true"></nav-bar>
+    <nav-bar @open-login="openLogin = true" @open-register="openRegister = true" @log-out="logOut" :is-login="isLogin"></nav-bar>
+    <main-landing v-if="!isLogin"></main-landing>
     <music-bar></music-bar>
     <music-bar></music-bar>
     <music-animation></music-animation>
     <login-form v-if="openLogin"></login-form>
-    <main-footer></main-footer>
+    <main-footer @opening-register="openRegister = true"></main-footer>
     <register-form v-if="openRegister"></register-form>
 
 
     <!-- <music-bar></music-bar> -->
   </div>
   <script src="./scripts/navbar.js"></script>
+  <script src="./scripts/landing.js"></script>
   <script src="./scripts/footer.js"></script>
   <script src="./scripts/login.js"></script>
   <script src="./scripts/register.js"></script>
-
-
-
   <script src="./scripts/content.js"></script>
   <script src="./scripts/musicBar.js"></script>
   <script src="./scripts/musicAnimation.js"></script>

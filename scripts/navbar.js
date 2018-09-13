@@ -7,16 +7,12 @@ Vue.component('nav-bar',{
         </div>
         <div class="login">
           <ul>
-            <li id="login-button" @click = "openLogin">login</li>
-            <li id="register-button" @click = "openRegister">register</li>
+            <li v-if="!isLogin" id="login-button" @click = "openLogin">login</li>
+            <li v-if="!isLogin" id="register-button" @click = "openRegister">register</li>
+            <li v-if="isLogin" id="register-button" @click = "logOut">log out</li>
           </ul>
         </div>
       </div>
-
-      <div class="landing">
-        <h2>explore the best music out there</h2>
-      </div>
-
     </div>
   `,
   methods : {
@@ -26,6 +22,10 @@ Vue.component('nav-bar',{
     openRegister(){
       console.log('masuk');
       this.$emit('open-register');
+    },
+    logOut(){
+      this.$emit('log-out');
     }
-  }
+  },
+  props : ['is-login']
 });
