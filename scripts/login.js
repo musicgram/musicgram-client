@@ -58,8 +58,20 @@ Vue.component('login-form',{
   },
   methods : {
     sendLogin(){
-      console.log(this.email);
-      console.log(this.password);
+      axios({
+        method : "post",
+        url : "http://localhost:3000/users/login",
+        data :{
+          password : this.password,
+          email : this.email
+        }
+      })
+      .then(response=>{
+        console.log(response);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
     },
     closeLogin(){
       app.openLogin = false;
