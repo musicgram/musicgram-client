@@ -8,6 +8,7 @@ Vue.component('main-content',{
     </div>
   </div>
   `,
+  props:['addmusic'],
   data(){
     return {
       baseurl: 'http://localhost:3000',
@@ -15,7 +16,11 @@ Vue.component('main-content',{
       userId: ''
     };
   },
-
+  watch:{
+    addmusic(){
+      this.musics.push(this.addmusic[0].music)
+    }
+  },
   methods: {
 
   },

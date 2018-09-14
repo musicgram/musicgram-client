@@ -6,7 +6,6 @@ Vue.component('upload-file',{
                 <input type="file" v-on:change="getSound($event)">
                 <button type="button" @click="upload">Upload</button>
             </form>
-
         </div>
     `,
     data(){
@@ -24,6 +23,7 @@ Vue.component('upload-file',{
         upload() {
             let formData = new FormData()
             formData.append("image", this.urlSound)
+            let self = this
             console.log(formData, '<-- form data')
             axios.post('http://localhost:3000/upload', formData)
                 .then((image) => {
@@ -34,20 +34,34 @@ Vue.component('upload-file',{
                             file: file
                         },{headers:{authorization: `Bearer ${token}`}})
                         .then(response => {
-                            
+                            console.log('===>1', response.data)
                             let data = {musicId : response.data.musicId}
+                            let token = localStorage.getItem('token')  
+                            
                             axios.post('http://localhost:3000/users/addMusic',data,{headers:{authorization: `Bearer ${token}`}})
-                            .then(response =>{
-                                console.log(response);
-                                
-                            })
-                            .catch(err =>{
-                                console.log(err.response);
-                                
+                                .then(finaldata =>{
+                                    console.log('===>2', response.data)
+                                    console.log(response.data, 'image')
+                                    let data = {
+                                        music : {
+                                            user : {
+                                                name :response.data.name,
+                                                _id : response.data.id                                        
+                                            },
+                                        title : response.data.newMusic.title,
+                                        file : response.data.newMusic.file
+                                    }}
+                                    console.log(finaldata, 'ini dataaaaa')
+                                    self.$emit('add-new-music',data)
+                                    console.log('gak mask sini')
+                                })
+                                .catch(err =>{
+                                    console.log('===>3',err.response);
+                                    
                             })
                         })
                         .catch(err =>{
-                            console.log(err);
+                            console.log('===>4',err);
                             
                         })
                 })
