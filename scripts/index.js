@@ -4,10 +4,20 @@ const app = new Vue({
     return{
       openLogin : false,
       openRegister : false,
-      isLogin : false
+      isLogin : false,
+      musics : []
+    }
+  },
+  watch:{
+    musics(){
+      console.log('emit di parent===>',this.musics)
     }
   },
   methods : {
+    addmusic(value){
+      console.log('hahahahaha', value)
+      this.musics.push(value)
+    },
     logOut(){
       localStorage.removeItem("token");
       this.isLogin = false;

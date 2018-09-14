@@ -26,13 +26,12 @@
   <div id="app">
     <nav-bar @open-login="openLogin = true" @open-register="openRegister = true" @log-out="logOut" v-bind:logstatus="isLogin"></nav-bar>
     <main-landing v-if="!isLogin"></main-landing>
+    <main-content :addmusic="musics"></main-content>
+
+
+
     <command v-if="isLogin"></command>
-    <upload-file v-if="isLogin"></upload-file>
-    <main-content></main-content>
-
-
-
-
+    <upload-file v-if="isLogin" v-on:add-new-music="addmusic"></upload-file>
     <!--
     <music-bar></music-bar>
     <music-bar></music-bar>
