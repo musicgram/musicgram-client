@@ -2,9 +2,10 @@ Vue.component('music-bar',{
   template : `
 
   <div class="container-audio">
-    <h2>music.name</h2>
+    <h2>{{ music.title }}</h2>
+    <h5>{{ music.user.name }}</h5>
       <audio controls autostart = "0">
-        <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9473/new_year_dubstep_minimix.ogg" type="audio/ogg">
+        <source :src="music.file" type="audio/mpeg">
         Your browser dose not Support the audio Tag
       </audio>
     </div>

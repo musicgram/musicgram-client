@@ -9,11 +9,30 @@ Vue.component('main-content',{
   `,
   data(){
     return {
-      musics : []
+      baseurl: 'http://localhost:3000',
+      musics : [],
+      userId: ''
     };
   },
 
   methods: {
 
+  },
+
+  created: function() {
+    let self = this;
+
+    this.userId = localStorage.getItem('id');
+
+    axios({
+      method: 'get',
+      url: `${this.baseurl}/`
+    })
+    .then(response => {
+      self.musics = response.data.musics
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 });
