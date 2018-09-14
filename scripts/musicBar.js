@@ -2,6 +2,7 @@ Vue.component('music-bar',{
   template : `
 
   <div class="container-audio">
+    <h5 style="text-align: right"><a href="javascript:void(0)" @click="deleteMusic" v-if="music.user._id === userId">Delete</a></h5>
     <h2>{{ music.title }}</h2>
     <h5>{{ music.user.name }}</h5>
       <audio controls autostart = "0">
@@ -20,11 +21,35 @@ Vue.component('music-bar',{
   `,
   data(){
     return {
+      baseurl: 'http://localhost:3000',
+      userId: ''
     }
   },
 
   methods: {
+    deleteMusic() {
+      const id = this.music._id;
+      let self = this;
+      let token = localStorage.getItem('token');
 
+      axios({
+        method: 'delete',
+        url: `${self.baseurl}/${id}`,
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        let deletedId = response.data.id;
+        self.$emit('delete-music', deletedId);
+      })
+      .catch(err => {
+
+      });
+    }
+  },
+  created() {
+    this.userId = localStorage.getItem('user_id');
   },
   props : ['music']
 });
