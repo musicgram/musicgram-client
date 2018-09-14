@@ -4,6 +4,7 @@ Vue.component('main-content',{
     <h1>Lists of Musics</h1>
     <div class="content" v-for="music in musics" >
       <music-bar :music="music"></music-bar>
+      <music-animation></music-animation>
     </div>
   </div>
   `,
