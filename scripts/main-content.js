@@ -6,6 +6,8 @@ Vue.component('main-content',{
       <music-bar :music="music"></music-bar>
       <music-animation></music-animation>
     </div>
+    <div class="lds-ring" v-if="musics.length===0||musics===undefined"><div></div><div></div><div></div><div></div></div>
+
   </div>
   `,
   props:['addmusic'],

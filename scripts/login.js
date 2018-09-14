@@ -43,8 +43,9 @@ Vue.component('login-form',{
       </div>
 
     </div>
-    <button type="button" @click="sendLogin">Log in</button>
+    <h5>{{error}}</h5>
 
+    <button type="button" @click="sendLogin">Log in</button>
   </form>
   <span @click="closeLogin">close</span>
 </div>
@@ -53,11 +54,13 @@ Vue.component('login-form',{
   data(){
     return {
       email : "",
-      password : ""
+      password : "",
+      error : ""
     }
   },
   methods : {
     sendLogin(){
+      let self = this;
       axios({
         method : "post",
         url : "http://localhost:3000/users/login",
@@ -67,12 +70,18 @@ Vue.component('login-form',{
         }
       })
       .then(response=>{
-        localStorage.setItem('token',response.data.token);
-        app.isLogin = true;
-        app.openLogin = false;
+        if(response.data.token===null||response.data.token===undefined){
+          self.error = "username/password is wrong";
+        }
+        else{
+          localStorage.setItem('token',response.data.token);
+          app.isLogin = true;
+          app.openLogin = false;
+        }
+
       })
       .catch(err=>{
-        console.log(err);
+        self.error = "username/password is wrong";
       });
     },
     closeLogin(){
