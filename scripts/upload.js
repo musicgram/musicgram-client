@@ -33,11 +33,11 @@ Vue.component('upload-file',{
             formData.append("image", this.urlSound)
             let self = this
             console.log(formData, '<-- form data')
-            axios.post('http://localhost:3000/upload', formData)
+            axios.post('apimusic.minimalistcoder.xyz/upload', formData)
                 .then((image) => {
                     let file = image.data.link
                     let token = localStorage.getItem('token')
-                    axios.post('http://localhost:3000/musics', {
+                    axios.post('apimusic.minimalistcoder.xyz/musics', {
                             title : this.title,
                             file: file
                         },{headers:{authorization: `Bearer ${token}`}})
@@ -46,7 +46,7 @@ Vue.component('upload-file',{
                             let data = {musicId : response.data.musicId}
                             let token = localStorage.getItem('token')
 
-                            axios.post('http://localhost:3000/users/addMusic',data,{headers:{authorization: `Bearer ${token}`}})
+                            axios.post('apimusic.minimalistcoder.xyz/users/addMusic',data,{headers:{authorization: `Bearer ${token}`}})
                                 .then(finaldata =>{
                                     console.log('===>2', response.data)
                                     console.log(response.data, 'image')

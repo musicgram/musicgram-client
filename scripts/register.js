@@ -77,7 +77,7 @@ Vue.component('register-form',{
     sendRegister(){
       axios({
         method : "post",
-        url : "http://localhost:3000/users/register",
+        url : "apimusic.minimalistcoder.xyz/users/register",
         data :{
           name : this.name,
           password : this.password,
