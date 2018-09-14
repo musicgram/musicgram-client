@@ -63,7 +63,7 @@ Vue.component('login-form',{
       let self = this;
       axios({
         method : "post",
-        url : "apimusic.minimalistcoder.xyz/users/login",
+        url : "http://apimusic.minimalistcoder.xyz/users/login",
         data :{
           password : this.password,
           email : this.email

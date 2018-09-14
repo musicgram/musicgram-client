@@ -2,7 +2,7 @@ Vue.component('music-bar',{
   template : `
 
   <div class="container-audio">
-    <h5 style="text-align: right"><a href="javascript:void(0)" @click="deleteMusic" v-if="music.user._id === userId">Delete</a></h5>
+    <h5 style="text-align: right"><a href="javascript:void(0)" @click="deleteMusic" v-if="music.user._id === userId && haveToken">Delete</a></h5>
     <h2>{{ music.title }}</h2>
     <h5>{{ music.user.name }}</h5>
       <audio controls autostart = "0">
@@ -21,8 +21,9 @@ Vue.component('music-bar',{
   `,
   data(){
     return {
-      baseurl: 'http://localhost:3000',
-      userId: ''
+      baseurl: 'http://apimusic.minimalistcoder.xyz',
+      userId: '',
+      haveToken : false
     }
   },
 
@@ -50,6 +51,12 @@ Vue.component('music-bar',{
   },
   created() {
     this.userId = localStorage.getItem('user_id');
+    if(localStorage.getItem("token")){
+      this.haveToken = true;
+    }
+    if(app.isLogin===false){
+      this.haveToken = false;
+    }
   },
   props : ['music']
 });

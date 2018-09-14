@@ -13,7 +13,7 @@ Vue.component('main-content',{
   props:['addmusic'],
   data(){
     return {
-      baseurl: 'apimusic.minimalistcoder.xyz',
+      baseurl: 'http://apimusic.minimalistcoder.xyz',
       musics : [],
       userId: ''
     };
