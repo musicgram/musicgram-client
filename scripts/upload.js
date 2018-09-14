@@ -45,7 +45,8 @@ Vue.component('upload-file',{
                                     let data = {
                                         music : {
                                             user : {
-                                                name :response.data.name,                                        
+                                                name :response.data.name,
+                                                _id : response.data.id                                        
                                             },
                                         title : response.data.newMusic.title,
                                         file : response.data.newMusic.file
