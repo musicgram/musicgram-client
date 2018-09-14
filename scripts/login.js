@@ -75,6 +75,7 @@ Vue.component('login-form',{
         }
         else{
           localStorage.setItem('token',response.data.token);
+          localStorage.setItem('user_id',response.data.user_id);
           app.isLogin = true;
           app.openLogin = false;
         }
