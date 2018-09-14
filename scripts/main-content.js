@@ -10,7 +10,8 @@ Vue.component('main-content',{
   data(){
     return {
       baseurl: 'http://localhost:3000',
-      musics : []
+      musics : [],
+      userId: ''
     };
   },
 
@@ -20,6 +21,8 @@ Vue.component('main-content',{
 
   created: function() {
     let self = this;
+
+    this.userId = localStorage.getItem('id');
 
     axios({
       method: 'get',
