@@ -20,6 +20,8 @@ const app = new Vue({
     },
     logOut(){
       localStorage.removeItem("token");
+      localStorage.removeItem("user_id");
+
       this.isLogin = false;
     }
   },
