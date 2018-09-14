@@ -300,8 +300,7 @@ html {
 }
 
 .landing {
-  background-image: linear-gradient(to bottom, #20202085, #20202085),
-    url("../images/landing-image.jpg");
+  background-image: linear-gradient(to bottom, #20202085, #20202085), url("../images/landing-image.jpg");
   color: #ffff;
   width: 100%;
   height: 600px;
@@ -395,4 +394,17 @@ html {
   display: flex;
   justify-content: center;
   padding: 3% 0;
+}
+
+.container-audio img {
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.socmedbutton {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
