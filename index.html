@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,15 +28,14 @@
     <main-landing v-if="!isLogin"></main-landing>
     <main-content></main-content>
 
-    
-    
-    <command></command>
-    <upload-file></upload-file>
-    <!-- 
+
+
+    <command v-if="isLogin"></command>
+    <upload-file v-if="isLogin"></upload-file>
+    <!--
     <music-bar></music-bar>
-    <music-bar></music-bar> 
+    <music-bar></music-bar>
     -->
-    <music-animation></music-animation>
     <login-form v-if="openLogin"></login-form>
     <main-footer @opening-register="openRegister = true"></main-footer>
     <register-form v-if="openRegister"></register-form>
